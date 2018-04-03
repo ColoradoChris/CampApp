@@ -2,16 +2,9 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var Campground = require('./models/campground');
 
 mongoose.connect('mongodb://localhost/camp_app');
-
-var campgroundSchema = new mongoose.Schema({
-   name: String,
-   image: String,
-   description: String
-});
-
-var Campground = mongoose.model("Campground", campgroundSchema);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
