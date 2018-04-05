@@ -31,6 +31,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
+//Pass in user data for all templates
+app.use(function(req, res, next){
+   res.locals.currentUser = req.user;
+   next();
+});
+
+//Routes
 app.get('/', function(req, res){
    res.render('landing'); 
 });
@@ -73,7 +80,8 @@ app.get('/campgrounds/:id', function(req, res){
    });
 });
 
-app.get('/campgrounds/:id/comments/new', function(req, res) {
+//Comments Routes
+app.get('/campgrounds/:id/comments/new', isLoggedIn, function(req, res) {
    Campground.findById(req.params.id, function(err, campground){
       if(err){
          console.log(err);
@@ -102,7 +110,7 @@ app.post('/campgrounds/:id/comments', function(req, res){
    });
 });
 
-//AUTH/Register Routes
+//Register Routes
 app.get('/register', function(req, res) {
    res.render('register'); 
 });
@@ -132,6 +140,19 @@ app.post('/login', passport.authenticate('local',
    failureRedirect: "/login"
 }), function(req, res) { 
 });
+
+//Logout Route
+app.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/campgrounds');
+});
+
+function isLoggedIn(req, res, next){
+   if(req.isAuthenticated()){
+      return next();
+   }
+   res.redirect('/login');
+}
 
 app.listen(process.env.PORT, process.env.IP, function(){
    console.log("Server has started."); 
