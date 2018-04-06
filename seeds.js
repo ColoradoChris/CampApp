@@ -42,19 +42,19 @@ function seedDB(){
                      console.log(err);
                  } else {
                      console.log("Campground was added to the DB.");
-                     Comment.create(
-                        {
-                            text: "This campground was stinky.",
-                            author: "Bruce Wayne"
-                        }, function(err, comment){
-                           if(err){
-                               console.log(err);
-                           } else {
-                               campground.comments.push(comment);
-                               campground.save();
-                               console.log("Created a new comment.");
-                           }
-                        });
+                    //  Comment.create(
+                    //     {
+                    //         text: "This campground was stinky.",
+                    //         author: "Bruce Wayne"
+                    //     }, function(err, comment){
+                    //       if(err){
+                    //           console.log(err);
+                    //       } else {
+                    //           campground.comments.push(comment);
+                    //           campground.save();
+                    //           console.log("Created a new comment.");
+                    //       }
+                    //     });
                  }
               });
            });

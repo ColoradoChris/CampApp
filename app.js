@@ -14,7 +14,7 @@ var indexRoutes = require('./routes/index');
 var campgroundRoutes = require('./routes/campgrounds');
 var commentsRoutes = require('./routes/comments');
 
-// seedDB();
+//seedDB();
 
 //Passport Config
 app.use(require('express-session')({
@@ -43,8 +43,8 @@ app.use(function(req, res, next){
 
 //Routes
 app.use('/', indexRoutes);
-app.use('/campground', campgroundRoutes);
-app.use('/campground/:id/comments',commentsRoutes);
+app.use('/campgrounds', campgroundRoutes);
+app.use('/campgrounds/:id/comments',commentsRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function(){
    console.log("Server has started."); 
