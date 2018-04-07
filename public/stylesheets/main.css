@@ -1,7 +1,20 @@
+input {
+    text-align: center;
+}
+
+.forms {
+    width: 40%;
+    margin: 25px auto;
+}
+
 .thumbnail {
     padding: 2px;
 }
 
 .delete-form {
     display: inline;
+}
+
+.row h1 {
+    text-align: center;
 }

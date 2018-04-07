@@ -10,6 +10,7 @@ var LocalStrategy = require('passport-local');
 var passportLocalMongoose = require('passport-local-mongoose');
 var User = require('./models/user');
 var methodOverride = require('method-override');
+var flash = require('connect-flash');
 
 var indexRoutes = require('./routes/index');
 var campgroundRoutes = require('./routes/campgrounds');
@@ -23,6 +24,7 @@ app.use(require('express-session')({
    resave: false,
    saveUninitialized: false
 }));
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
@@ -37,9 +39,11 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 app.use(methodOverride('_method'));
 
-//Pass in user data for all templates
+//Pass in data for all templates
 app.use(function(req, res, next){
    res.locals.currentUser = req.user;
+   res.locals.error = req.flash('error');
+   res.locals.success = req.flash('success');
    next();
 });
 
