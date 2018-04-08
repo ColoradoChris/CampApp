@@ -4,7 +4,8 @@
   "description": "This app will display campgrounds and allow people to find specific ones and rate them. ",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
