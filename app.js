@@ -35,7 +35,9 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 //MongoDB Connection
-mongoose.connect('mongodb://localhost/camp_app');
+//mongoose.connect('mongodb://localhost/camp_app');
+mongoose.connect('mongodb://chris:databasepassword@ds245287.mlab.com:45287/campsiter');
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
