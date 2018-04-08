@@ -11,6 +11,8 @@ var passportLocalMongoose = require('passport-local-mongoose');
 var User = require('./models/user');
 var methodOverride = require('method-override');
 var flash = require('connect-flash');
+var jQuery = require('jquery');
+var date = require('date-and-time');
 
 var indexRoutes = require('./routes/index');
 var campgroundRoutes = require('./routes/campgrounds');

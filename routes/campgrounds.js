@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Campground = require('../models/campground');
 var middleware = require('../middleware');
+var date = require('date-and-time');
 
 router.get('/', function(req, res){
    Campground.find({}, function(err, allCampgrounds){
@@ -46,7 +47,7 @@ router.get('/:id', function(req, res){
          req.flash('error', 'Could not find the requested campground.');
          res.redirect('back');
       } else {
-         res.render('campgrounds/show', {campground: foundCampground});
+         res.render('campgrounds/show', {campground: foundCampground, date: date});
       }
    });
 });

@@ -13,6 +13,14 @@ body {
     color: #fff;
 }
 
+.element {
+	text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+
 .slideshow {
     position: fixed;
     width: 100%;

@@ -5,17 +5,24 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="/stylesheets/main.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     </head>
     <body>
         <nav class="navbar navbar-inverse">
-            <div class="container=fluid">
+            <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/">CampSiter</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
                 </div>
-                <div class="nav navbar-nav navbar-left">
-                    <li><a href='/campgrounds'>All Campgrounds</a></li>
-                </div>
-                <div class="collapse navbar-collapse">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href='/campgrounds'>All Campgrounds</a></li>
+                    </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <% if(!currentUser){ %>
                         <li><a href='/login'>Login</a></li>
