@@ -34,9 +34,8 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-//MongoDB Connection
-//mongoose.connect('mongodb://localhost/camp_app');
-mongoose.connect('mongodb://chris:databasepassword@ds245287.mlab.com:45287/campsiter');
+//MongoDB connection
+mongoose.connect(process.env.DATABASEURL);
 
 
 app.use(bodyParser.urlencoded({extended: true}));
